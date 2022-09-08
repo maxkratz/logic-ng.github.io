@@ -20,5 +20,5 @@ jobs:
           echo "www.logicng.org" > CNAME 
           git add CNAME
           git commit -m "add CNAME file"
-          git push
+          git push origin gh-pages
 
