@@ -12,9 +12,4 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
-      - run: |
-          git switch gh-pages
-          echo "www.logicng.org" >> CNAME 
-          git commit -am "add CNAME file"
-          git push
+      - run: mkdocs gh-deploy -d docs --force
