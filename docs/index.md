@@ -6,8 +6,8 @@ hide:
 
 # LogicNG - The Next Generation Logic Framework
 
-![LogicNG Logo](assets/graphics/logo-lng-dark.png#only-dark)
 ![LogicNG Logo](assets/graphics/logo-lng-light.png#only-light)
+![LogicNG Logo](assets/graphics/logo-lng-dark.png#only-dark)
 
 
 ## Introduction
