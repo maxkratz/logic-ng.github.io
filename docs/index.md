@@ -1,5 +1,5 @@
 ---
-title: "LogicNG"
+title: "The Next Generation Logic Framework"
 hide:
   - navigation
 ---
