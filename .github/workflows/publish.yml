@@ -17,7 +17,7 @@ jobs:
           git config --global user.email "bot@logicng.org"
           git config --global user.name "LogicNG Bot"
           git switch gh-pages
-          echo "www.logicng.org" > CNAME 
+          echo "logicng.org" > CNAME
           git add CNAME
           git commit -m "add CNAME file"
           git push origin gh-pages
