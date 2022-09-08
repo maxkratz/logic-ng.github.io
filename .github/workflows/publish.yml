@@ -12,4 +12,13 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy -d docs --force
+      - run: mkdocs gh-deploy --force
+      - run: |
+          git config --global user.email "bot@logicng.org"
+          git config --global user.name "LogicNG Bot"
+          git switch gh-pages
+          echo "www.logicng.org" > CNAME 
+          git add CNAME
+          git commit -m "add CNAME file"
+          git push
+
