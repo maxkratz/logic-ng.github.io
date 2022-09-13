@@ -4,26 +4,20 @@ title: "Privacy Policy"
 
 ## GitHub Pages
 
-This Website is hosted as a GitHub Pages website. GitHub may collect personal information from visitors to this GitHub Pages website, including logs of visitor IP addresses, to comply with legal obligations, and to maintain the security and integrity of the website and the service. See the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement) for details.
+This Website is hosted on GitHub Pages. GitHub may collect personal information from visitors, including logs of visitor IP addresses.  See the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement) for details.
 
 
-## Data Collection
+## Data Collection and Cookies
 
-This website does *not* use website analytics.
-
-
-## Cookie Usage
-
-This website does *not* use cookies.
+This website does *not* use website analytics, does *not* store any user data, and does *not* use cookies.
 
 
-## Linked Services
+## Links
 
-This website contains links to other services. If you follow these links, you should become aware of their terms of service.
+This website contains links to other sites. We link to:
 
-We link to:
-
-* [GitHub](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) for code and documentation repositories
+* [GitHub](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) for code and documentation repositories and our coorporate profile
+* [LinkedIn](https://de.linkedin.com/legal/user-agreement?) for our coorporate profile
 
 Additional links might occur in the documentation.
 
