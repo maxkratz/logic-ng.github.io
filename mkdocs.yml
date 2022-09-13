@@ -60,7 +60,7 @@ extra:
       name: BooleWorks on GitHub
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/booleworks
-      name: Booleorks on LinkedIn
+      name: BooleWorks on LinkedIn
 
 markdown_extensions:
   - pymdownx.highlight:
