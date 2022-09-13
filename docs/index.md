@@ -1,5 +1,6 @@
 ---
-title: "The Next Generation Logic Framework"
+title: "LogicNG"
+description: "Harness the Power of Logic in your Projects"
 hide:
   - navigation
 ---

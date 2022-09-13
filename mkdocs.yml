@@ -2,6 +2,7 @@
 # the site
 site_name: The Next Generation Logic Framework
 site_url: https://www.logicng.org
+site_description: LogicNG
 site_author: BooleWorks GmbH
 
 # the repository
@@ -50,6 +51,7 @@ theme:
         accent: teal
 plugins:
   - search
+  - social
 
 extra:
   social:
