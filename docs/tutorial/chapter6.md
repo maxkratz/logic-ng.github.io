@@ -25,7 +25,7 @@ As mentioned in the previous chapter, Beatrice can also formulate the problem of
 MaxSATSolver solver = MaxSATSolver.msu3();
 propositions.forEach(x -> solver.addHardFormula(x.formula()));
 
-SortedSet<Variable> vars = propositions.stream() // (1)
+SortedSet<Variable> vars = propositions.stream() // (1)!
         .map(proposition -> proposition.formula().variables())
         .flatMap(Collection::stream)
         .filter(v -> !data.featureClasses.contains(v))
@@ -83,9 +83,9 @@ For some features, however, the prices do not differentiate: The bike bells and 
 MaxSATSolver solver = MaxSATSolver.wbo();
 propositions.forEach(proposition ->
         solver.addHardFormula(proposition.formula()));
-solver.addHardFormula("wf27"); // (1)
+solver.addHardFormula("wf27"); // (1)!
 
-solver.addSoftFormula(f1.negate(), 1500); // (2)
+solver.addSoftFormula(f1.negate(), 1500); // (2)!
 solver.addSoftFormula(f2.negate(), 900);
 solver.addSoftFormula(f3.negate(), 400);
 

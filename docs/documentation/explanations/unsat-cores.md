@@ -26,7 +26,7 @@ props.add(new StandardProposition(f.parse("~E")));
 When adding these formulas to a solver and solving them, the result is `FALSE`.  Now we can extract the unsatisfiable core with
 
 ``` java
-Tristate sat = solver.sat(); // (1)
+Tristate sat = solver.sat(); // (1)!
 UNSATCore<Proposition> unsatCore = solver.unsatCore();
 ```
 

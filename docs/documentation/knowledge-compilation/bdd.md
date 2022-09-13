@@ -137,7 +137,7 @@ final Formula f1 = f.parse("(~(v372 | v2095 | v2096 | v683 | v1629 | v1655 | v14
    "(v836 | v837 | v827 | v828) & v1604) & (v1539 & v357 & v1604 | ~(v1401 | v781 | v684 | v1449 | v1354 | v2117 | v1494) & v1604 | v17 " +
    "& v505) & v391 & v1604");
 
-final BDD bdd = formula.bdd(VariableOrdering.BFS); // (1)
+final BDD bdd = formula.bdd(VariableOrdering.BFS); // (1)!
 final BigInteger numberOfClauses = bdd.numberOfClausesCNF();
 ```
 
@@ -171,9 +171,9 @@ BDD bdd = phi.bdd();
 We can perform a random reordering with a [BDDReordering](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/knowledgecompilation/bdds/jbuddy/BDDReordering.java) in the following way:
 
 ```java
-BDDReordering bddReordering = new BDDReordering(bdd.underlyingKernel()); // (1)
-bddReordering.addVariableBlockAll(); // (2)
-bddReordering.reorder(BDDReorderingMethod.BDD_REORDER_RANDOM); // (3)
+BDDReordering bddReordering = new BDDReordering(bdd.underlyingKernel()); // (1)!
+bddReordering.addVariableBlockAll(); // (2)!
+bddReordering.reorder(BDDReorderingMethod.BDD_REORDER_RANDOM); // (3)!
 ```
 
 1. create a BDDReordering
@@ -584,8 +584,8 @@ Secondly, if you want to specify which value the don't-care variables in the res
 For example,
 
 ``` java
-Assignment model1 = bdd.model(true, f1.variables()); // (1)
-Assignment model2 = bdd.model(false, f1.variables()); // (2)
+Assignment model1 = bdd.model(true, f1.variables()); // (1)!
+Assignment model2 = bdd.model(false, f1.variables()); // (2)!
 ```
 
 1. don't-care variables are set to `true`

@@ -81,13 +81,13 @@ FactorizationHandler handler = new FactorizationHandler() {
 
    @Override
    public boolean createdClause(Formula clause) {
-       this.clauses++; // (1)
+       this.clauses++; // (1)!
        return !aborted();
    }
 
    @Override
    public boolean aborted() {
-       return this.dists >= 4 || this.clauses >= 3; // (2)
+       return this.dists >= 4 || this.clauses >= 3; // (2)!
    }
 };
 CNFFactorization factorization = new CNFFactorization(handler);

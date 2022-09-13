@@ -50,16 +50,16 @@ public static List<Proposition> getPropositions(
     for (Formula formula : formulas) {
         LocalDate date;
         if (formula.variables().contains(data.s4)) {
-            date = LocalDate.of(2021, 1, 1); // (1)
+            date = LocalDate.of(2021, 1, 1); // (1)!
         } else if (formula.variables().contains(data.b2)) {
-            date = LocalDate.of(2022, 1, 1); // (2)
+            date = LocalDate.of(2022, 1, 1); // (2)!
         } else if (formula.type() == FType.PBC) {
-            date = LocalDate.of(2020, 1, 1); // (3)
+            date = LocalDate.of(2020, 1, 1); // (3)!
         } else {
-            date = LocalDate.of(2020, 6, 1); // (4)
+            date = LocalDate.of(2020, 6, 1); // (4)!
         }
         Proposition proposition = new ExtendedProposition<>(
-                new MyBackpack(id, date), formula); // (5)
+                new MyBackpack(id, date), formula); // (5)!
         propositions.add(proposition);
         id++;
     }

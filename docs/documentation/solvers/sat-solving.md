@@ -129,12 +129,12 @@ Formula f1 = f.parse("A & B & C");
 solver.add(f1);
 solver.sat();   // TRUE
 
-SolverState initialState = miniSat.saveState(); // (1)
-solver.add(f.parse("~A")); // (2)
+SolverState initialState = miniSat.saveState(); // (1)!
+solver.add(f.parse("~A")); // (2)!
 solver.sat();   // FALSE
 
-solver.loadState(initialState); // (3)
-solver.add(f.parse("D")); // (4)
+solver.loadState(initialState); // (3)!
+solver.add(f.parse("D")); // (4)!
 solver.sat();   // TRUE
 ```
 
@@ -157,8 +157,8 @@ SolverState initialState = miniSat.saveState();
 miniSat.add(f.parse("~A"));
 SolverState nextState = miniSat.saveState();
 
-miniSat.loadState(initialState); // (1)
-miniSat.loadState(nextState); // (2)
+miniSat.loadState(initialState); // (1)!
+miniSat.loadState(nextState); // (2)!
 ```
 
 1. Loading the initial state is possible

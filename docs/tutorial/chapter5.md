@@ -55,14 +55,14 @@ Then, we go over each formula and check whether it is violated under the assignm
 ``` java
 wishedFeaturesSarah.addAll(Arrays.asList(
         data.frame, data.handlebar, data.saddle, data.frontWheel,
-        data.backWheel, data.luggageRack, data.color, data.bell)); // (1)
-Assignment assignment = new Assignment(wishedFeaturesSarah); // (2)
+        data.backWheel, data.luggageRack, data.color, data.bell)); // (1)!
+Assignment assignment = new Assignment(wishedFeaturesSarah); // (2)!
 List<Formula> formulas = propositions.stream()
         .map(Proposition::formula)
         .collect(Collectors.toList());
 
 for (Formula formula : formulas) {
-    boolean isViolated = !formula.evaluate(assignment); // (3)
+    boolean isViolated = !formula.evaluate(assignment); // (3)!
     if (isViolated) {
         System.out.println(formula);
     }
@@ -133,7 +133,7 @@ List<Literal> wishedFeaturesClemens = Arrays.asList(
         data.f1, data.c1, data.s2, data.f.variable("wf27"), data.b2);
 wishedFeaturesClemens.forEach(feature ->
         solver.add(new StandardProposition("Order", feature)));
-solver.sat(); // (1)
+solver.sat(); // (1)!
 
 UNSATCore<Proposition> unsatCore = solver.unsatCore();
 ```
@@ -186,7 +186,7 @@ Beatrice computes the backbone in the following way:
 ``` java
 MiniSat solver = MiniSat.miniSat(data.f);
 propositions.forEach(solver::add);
-solver.add(data.f.variable("wb32")); // (1)
+solver.add(data.f.variable("wb32")); // (1)!
 List<Variable> variablesInFormula = propositions.stream()
         .map(proposition -> proposition.formula().variables())
         .flatMap(Collection::stream)
@@ -223,11 +223,11 @@ As a simple example, consider
 SATSolver solver = MiniSat.miniSat(data.f);
 propositions.forEach(solver::add);
 
-solver.sat(); // (1)
+solver.sat(); // (1)!
 
-Assignment aModel = solver.model(); // (2)
+Assignment aModel = solver.model(); // (2)!
 
-List<Assignment> allModels = solver.enumerateAllModels(); // (3)
+List<Assignment> allModels = solver.enumerateAllModels(); // (3)!
 ```
 
 1. the sat problem has to be solved before enumerating models
@@ -283,7 +283,7 @@ Assignment{pos=[b3, backWheel, bell, c1, color, f1, frame, frontWheel, h4, handl
 The valid configurations distinguish only in their handlebars and saddles, because Beatrice has already decided on all other features (frame, color, wheel size, color).  One can also only enumerate over the features of interest.  For example Beatrice is now only interested which different saddles she can sell with the above configuration.  This is called _projected model enumeration_.  For this, Beatrice gives the method `enumerateAllModels()` a collection of variables over which the enumeration should be performed - in this case only the saddles.  The solver is the one defined above, with some features already added.
 
 ```java
-List<Variable> variables = Arrays.asList(data.s1, data.s2, data.s3, data.s4); // (1)
+List<Variable> variables = Arrays.asList(data.s1, data.s2, data.s3, data.s4); // (1)!
 List<Assignment> modelsProjected = solver.enumerateAllModels(variables);
 ```
 
@@ -313,7 +313,7 @@ In order to find out, she executes an `OptimizationFunction` on the solver.  Thi
 SATSolver solver = MiniSat.miniSat(data.f);
 propositions.forEach(solver::add);
 
-SortedSet<Variable> vars = propositions.stream() // (1)
+SortedSet<Variable> vars = propositions.stream() // (1)!
         .map(p -> p.formula().variables())
         .flatMap(Collection::stream)
         .filter(v -> !data.featureClasses.contains(v))

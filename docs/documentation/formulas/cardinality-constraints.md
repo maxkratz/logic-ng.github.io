@@ -34,9 +34,9 @@ Variable a = f.variable("A");
 Variable b = f.variable("B");
 Variable c = f.variable("C");
 
-Formula cc = f.cc(CType.GE, 2, Arrays.asList(a, b, c)); // (1)
-Formula amo = f.amo(Arrays.asList(a, b, c)); // (2)
-Formula exo = f.exo(Arrays.asList(a, b, c)); // (3)
+Formula cc = f.cc(CType.GE, 2, Arrays.asList(a, b, c)); // (1)!
+Formula amo = f.amo(Arrays.asList(a, b, c)); // (2)!
+Formula exo = f.exo(Arrays.asList(a, b, c)); // (3)!
 ```
 
 1. creates cardinality constraint: A + B + C >= 2

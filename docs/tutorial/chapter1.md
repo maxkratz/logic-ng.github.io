@@ -115,13 +115,13 @@ We begin by defining the variables. A variable with name `name` in LogicNG can b
 
 ``` java
 // frames
-Variable frame = f.variable("frame"); // (1)
+Variable frame = f.variable("frame"); // (1)!
 Variable f1 = f.variable("f1");
 Variable f2 = f.variable("f2");
 Variable f3 = f.variable("f3");
 
 // bike bells
-Variable bell = f.variable("bell"); // (2)
+Variable bell = f.variable("bell"); // (2)!
 Variable b1 = f.variable("b1");
 Variable b2 = f.variable("b2");
 Variable b3 = f.variable("b3");
@@ -136,11 +136,11 @@ Variable b3 = f.variable("b3");
 Next, we define equivalence and cardinality constraints based on these variables, ensuring that *exactly one* frame and *at most one* bike bell is configured.  One way to do this is to parse the relevant formulas:
 
 ``` java
-Formula f_equiv = f.parse("frame <=> f.or(f1, f2, f3)"); // (1)
-Formula f_exo = f.parse("f1 + f2 + f3 = 1"); // (2)
+Formula f_equiv = f.parse("frame <=> f.or(f1, f2, f3)"); // (1)!
+Formula f_exo = f.parse("f1 + f2 + f3 = 1"); // (2)!
 
-Formula b_equiv = f.parse("bell <=> f.or(b1, b2, b3)"); // (3)
-Formula b_exo = f.parse("b1 + b2 + b3 <= 1"); // (4)
+Formula b_equiv = f.parse("bell <=> f.or(b1, b2, b3)"); // (3)!
+Formula b_exo = f.parse("b1 + b2 + b3 <= 1"); // (4)!
 ```
 
 1. a frame is configured if and only if one of f1, f2 and f3 is chosen
@@ -151,11 +151,11 @@ Formula b_exo = f.parse("b1 + b2 + b3 <= 1"); // (4)
 Another way to do this is to use the built-in functions from the formula factory: Equivalences can be created using `#!java f.equivalence()` and exactly-one constraints can be generated using `#!java f.exo()`. At-most-one constraints can be created using `#!java f.amo()`.
 
 ``` java
-Formula f_equiv = f.equivalence(frame, f.or(f1, f2, f3)); // (1)
-Formula f_exo = f.exo(f1, f2, f3); // (2)
+Formula f_equiv = f.equivalence(frame, f.or(f1, f2, f3)); // (1)!
+Formula f_exo = f.exo(f1, f2, f3); // (2)!
 
 Formula b_equiv = f.equivalence(bell, f.or(b1, b2, b3));
-Formula b_amo = f.amo(b1, b2, b3); // (3)
+Formula b_amo = f.amo(b1, b2, b3); // (3)!
 ```
 
 1. using the `equivalence` built-in function
@@ -175,7 +175,7 @@ Again, one can create these formulas either by parsing the string or by using th
 Parsing the formulas can be done in the following way:
 
 ```java
-Formula formula1 = f.parse("f1 => ~s1 & ~h3"); // (1)
+Formula formula1 = f.parse("f1 => ~s1 & ~h3"); // (1)!
 Formula formula6 = f.parse("wf1 <=> wb1");
 ```
 
@@ -188,7 +188,7 @@ A literal is a variable and its polarity (positive/negative) and can be created 
 Therefore, the formulas can also be generated in the following way:
 
 ```java
-Formula formula1 = f.implication(f1, f.and(s1.negate(), h3.negate())); // (1)
+Formula formula1 = f.implication(f1, f.and(s1.negate(), h3.negate())); // (1)!
 Formula formula6 = f.equivalence(wf1, wb1);
 ```
 

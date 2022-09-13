@@ -210,9 +210,9 @@ ExtendedFormulaFactory f = new ExtendedFormulaFactory();
 
 // read and work with a large base formula
 
-FormulaFactoryState state = f.save(); // (1)
-f.parse("..."); // (2)
-f.load(state); // (3)
+FormulaFactoryState state = f.save(); // (1)!
+f.parse("..."); // (2)!
+f.load(state); // (3)!
 ```
 
 1. saves the current state

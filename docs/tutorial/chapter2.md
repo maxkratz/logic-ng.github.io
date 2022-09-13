@@ -98,7 +98,7 @@ See the function `restrictRuleset` in the tutorial code, how to do this:
 final Assignment assignment = new Assignment();
 
 assignment.addLiteral(data.f.variable("wb24").negate());
-assignment.addLiteral(data.c3.negate()); // (1)
+assignment.addLiteral(data.c3.negate()); // (1)!
 assignment.addLiteral(data.r4);
 
 final List<Formula> restricted = formulas.stream()
