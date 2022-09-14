@@ -52,6 +52,7 @@ theme:
 plugins:
   - search
   - social
+  - blog
 
 extra:
   social:
@@ -140,6 +141,8 @@ nav:
     - Handlers: documentation/handlers.md
     - Graphs: documentation/graphs.md
     - I/O: documentation/io.md
+  - Blog:
+    - blog/index.md
   - Legal:
     - Privacy Policy: legal/privacy.md
     - Corporate Information: legal/corporate.md
