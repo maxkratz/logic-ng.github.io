@@ -1,5 +1,4 @@
 ---
-draft: true
 date: 2022-09-14
 authors:
   - christoph
@@ -188,6 +187,11 @@ graph TD
 Now we want to change the look of the nodes dynamically by their content.  In this case we want to distinguish between nodes with literals (terminals) and nodes with sub-formulas (inner nodes) - but you could look at arbitrary properties of the node content.  To do this, you have to configure the generator with its own `NodeStyleMapper`.  As above: you can either implement a sub-class or just pass a lambda function.
 
 ```java
+GraphicalNodeStyle terminalNodeStyle =
+        GraphicalNodeStyle.rectangle(BLUE, WHITE, BLUE);
+GraphicalNodeStyle innerNodeStyle =
+        GraphicalNodeStyle.ellipse(YELLOW, BLACK, YELLOW);
+
 FormulaAstGraphicalGenerator generator = FormulaAstGraphicalGenerator.builder()
         .labelMapper(Formula::toString)
         .nodeStyleMapper((phi) ->
@@ -236,3 +240,9 @@ graph TD
   id0 --> id1
   id0 --> id7
 ```
+
+And here the corresponding dot file output:
+
+![Dot File Output](../../../../../assets/graphics/blog/dot-file.png){ width=450 }
+
+Since this is a statically generated PNG graphics, of course there is no dynamic color switching for light/dark mode like with the Mermaid.js output.

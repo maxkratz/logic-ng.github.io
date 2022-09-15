@@ -15,6 +15,7 @@ copyright: Copyright &copy; BooleWorks GmbH
 
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/logo.png
   favicon: assets/favicon.ico
   icon:
@@ -26,6 +27,7 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
+    - announce.dismiss
   palette:
     - media: "(prefers-color-scheme)"
       primary: teal
