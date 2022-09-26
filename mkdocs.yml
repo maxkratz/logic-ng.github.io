@@ -143,6 +143,27 @@ nav:
     - Handlers: documentation/handlers.md
     - Graphs: documentation/graphs.md
     - I/O: documentation/io.md
+  - Whitepaper:
+    - Solving Configuration Problems with LogicNG: whitepaper/abstract.md
+    - The Problem:
+      - Mass Customization: whitepaper/problem/mass-customization.md
+      - Common Configuration Problems: whitepaper/problem/common-configuration-problems.md
+    - The Solutions:
+      - The General Approach: whitepaper/solution/general-approach.md
+      - Manual Testing vs. Automated Reasoning: whitepaper/solution/testing-vs-reasoning.md
+      - On-the-fly Computation vs. Compilation: whitepaper/solution/computation-vs-compilation.md
+      - Decision Problems vs. Optimization Problems: whitepaper/solution/decision-vs-optimization.md
+    - Real Solutions for Real Problems:
+      - Today's Use Cases:
+        - whitepaper/real-solutions/use-cases/index.md
+        - High-Level Configuration: whitepaper/real-solutions/use-cases/high-level-configuration.md
+        - Ordering Process: whitepaper/real-solutions/use-cases/ordering-process.md
+        - Bill of Materials: whitepaper/real-solutions/use-cases/bill-of-materials.md
+        - Homologation Requirements: whitepaper/real-solutions/use-cases/homologation.md
+        - ECU Configuration: whitepaper/real-solutions/use-cases/ecu-configuration.md
+      - Towards a Software-Definied World: whitepaper/real-solutions/software-world.md
+    - References: whitepaper/references.md
+    - Contact: whitepaper/contact.md
   - Blog:
     - blog/index.md
   - Legal:
