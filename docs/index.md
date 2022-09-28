@@ -17,6 +17,10 @@ LogicNG is a Java Library for creating, manipulating and solving Boolean and Pse
 
 Its main focus lies on memory-efficient data-structures for Boolean formulas and efficient algorithms for manipulating and solving them. The library is designed to be used in industrial systems which have to manipulate and solve millions of formulas per day.
 
+## High Level Overview
+
+If you want a high-level overview of LogicNG and how it is used in many applications in the area of product configuration, you can read our [white paper](whitepaper/abstract).
+
 
 ## Philosophy
 

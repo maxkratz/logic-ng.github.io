@@ -143,7 +143,7 @@ nav:
     - Handlers: documentation/handlers.md
     - Graphs: documentation/graphs.md
     - I/O: documentation/io.md
-  - Whitepaper:
+  - White Paper:
     - Solving Configuration Problems with LogicNG: whitepaper/abstract.md
     - The Problem:
       - Mass Customization: whitepaper/problem/mass-customization.md
