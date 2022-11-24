@@ -228,6 +228,24 @@ The result is `D & E & B | F`.
 
 A formula is in negation normal form (NNF) if it consists only of literals and the operands `&` and `|`. For example, the formula `A | ~(B | C)` is *not* in NNF but formula `A | (~B & ~C)` is in NNF. The formulas `A & B | C` and `A & B | A & C` are in NNF. A NNF of a formula can be computed with `#!java formula.nnf()`.
 
+
+### Satisfiability of Formulas
+
+[:octicons-tag-24: 2.4.0](https://github.com/logic-ng/LogicNG/releases/tag/v2.4.0)
+
+If you want to know, if a formula is a tautology (always true), a contradiction (always false) or satisfiable, there are convenience functions on formulas to directly compute these predicates:
+
+- `isSatisfiable()` is the formula satisfiable, i.e. is there at least one assignment which evaluates the formula to true.
+- `isTautology()` is the formula a tautology, i.e. it evaluates to true under all assignments
+- `isContradiction()` is the formula a contradiction, i.e. it evaluates to false under all assignments
+
+Furthermore there are three methods to check whether the formula has a relation with another formula:
+
+- `implies(Formula other)` whether the formula implies the formula `other` mathematically, meaning each assignment which fulfills the formula also fulfills the `other` formula, e.g. `A => (A/B)`.
+- `isImpliedBy(Formula other)` whether the formula is implied by the `other` formula.
+- `isEquivalent(Formula other)` whether the formula is mathematically equivalent to the `other` formula, meaning they evaluate to true under exactly the same assignments.
+
+
 ## Executing Operations on Formulas and Implementing Own Operations
 
 There are three generalized types of operations which can be executed on formulas:

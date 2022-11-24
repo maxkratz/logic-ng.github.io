@@ -40,28 +40,28 @@ LogicNG is released in the Maven Central Repository. To include the latest versi
     <dependency>
       <groupId>org.logicng</groupId>
       <artifactId>logicng</artifactId>
-      <version>2.3.2</version>
+      <version>2.4.0</version>
     </dependency>
     ```
 
 === "Gradle Groovy DSL"
     ``` groovy
-    implementation 'org.logicng:logicng:2.3.2'
+    implementation 'org.logicng:logicng:2.4.0'
     ```
 
 === "Gradle Kotlin DSL"
     ``` kotlin
-    implementation("org.logicng:logicng:2.3.2")
+    implementation("org.logicng:logicng:2.4.0")
     ```
 
 === "Scala SBT"
     ``` scala
-    libraryDependencies += "org.logicng" % "logicng" % "2.3.2"
+    libraryDependencies += "org.logicng" % "logicng" % "2.4.0"
     ```
 
 === "Leiningen"
     ``` clojure
-    [org.logicng/logicng "2.3.2"]
+    [org.logicng/logicng "2.4.0"]
     ```
 
 

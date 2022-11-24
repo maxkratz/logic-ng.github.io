@@ -87,6 +87,7 @@ Beside the mentioned factory methods there are many convenience methods to creat
 - `constant(boolean value)` which creates a `$true` or `$false` constant depending on the given Boolean value
 - `cnf(Formula... clauses)` creating a conjunctive normal form (CNF) for the given clauses
 - `clause(Literal... literals)` creating a clause for the given literals
+- `variables(Collection<String> names)` and `variables(String... names)` creating a set of variables from the given names (since [:octicons-tag-24: 2.4.0](https://github.com/logic-ng/LogicNG/releases/tag/v2.4.0))
 
 For information about properties of formulas check out the next chapter [Formulas](../formulas).
 

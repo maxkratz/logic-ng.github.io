@@ -32,22 +32,23 @@ Details on this distinction can be found in the paper [Algorithms for Weighted B
 
 Here is an overview of the algorithms in LogicNG and their capabilities:
 
-| Algorithm  | Description                   | Strategy      | Unweighted | Weighted |
-|------------|-------------------------------|---------------|------------|----------|
-| `LinearSU` | Linear Sat-Unsat              | Linear Search | yes        | yes      |
-| `LinearUS` | Linear Unsat-Sat              | Linear Search | yes        | no       |
-| `MSU3`     | Seminal-core guided algorithm | Unsat-Core    | yes        | no       |
-| `WMSU3`    | Weighted MSU3                 | Unsat-Core    | no         | yes      |
-| `WBO`      | Weighted Boolean Optimization | Unsat-Core    | yes        | yes      |
-| `IncWBO`   | Incremental WBO               | Unsat-Core    | yes        | yes      |
+| Algorithm  | Description                                                                                    | Strategy      | Unweighted | Weighted |
+|------------|------------------------------------------------------------------------------------------------|---------------|------------|----------|
+| `LinearSU` | Linear Sat-Unsat                                                                               | Linear Search | yes        | yes      |
+| `LinearUS` | Linear Unsat-Sat                                                                               | Linear Search | yes        | no       |
+| `MSU3`     | Seminal-core guided algorithm                                                                  | Unsat-Core    | yes        | no       |
+| `WMSU3`    | Weighted MSU3                                                                                  | Unsat-Core    | no         | yes      |
+| `WBO`      | Weighted Boolean Optimization                                                                  | Unsat-Core    | yes        | yes      |
+| `IncWBO`   | Incremental WBO                                                                                | Unsat-Core    | yes        | yes      |
+| `OLL`      | OLL (since [:octicons-tag-24: 2.4.0](https://github.com/logic-ng/LogicNG/releases/tag/v2.4.0)) | Unsat-Core    | yes        | yes      |
 
 All algorithms in LogicNG support partial MaxSAT.  `LinearUS` and `MSU3` do not support weighted clauses/formulas, `WMSU3` does not support unweighted clauses/formulas.
 
 The `LinearSU` stands for Linear SAT-UNSAT and it means that all sat-calls on the SAT-Solver are SAT except for the last call. That means: We start with a version without soft formulas on the SAT solver (which is SAT as long as the conjunction of the hard formulas evaluate to `true`).  Then we add clauses as long as an UNSAT comes for the first time.  `LinearUS` stands for Linear UNSAT-SAT and works the other way around: All SAT-Solver calls are UNSAT and the last one is SAT.  So first we add all soft clauses, then remove clauses one by one until the SAT-call is SAT.
 
-The two `MSU3` and `WMSU3` algorithms are based on unsatisfiable cores.  The two `WBO` and `IncWBO` algorithms are based on a CNF encoding of the pseudo-Boolean Optimization problem.
+The three `MSU3`, `WMSU3`, and `OLL` algorithms are based on unsatisfiable cores.  The two `WBO` and `IncWBO` algorithms are based on a CNF encoding of the pseudo-Boolean Optimization problem and therefore are strongly dependent on the size of the weights.
 
-Which algorithm to use depends strongly on the specific use case and must be evaluated.
+Which algorithm to use depends strongly on the specific use case and must be evaluated.  In practice `OLL` should be the best choice for all weighted problems especially when dealing with large weights.
 
 
 ## Using MaxSAT Solvers in LogicNG

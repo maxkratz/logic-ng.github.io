@@ -347,6 +347,20 @@ The class `Formula` has a method to create BDDs. With this method one cannot set
 2. With a variable ordering: `f1.bdd(varOrder)` returns the BDD of `f1` with the variable ordering `varOrder`.
 
 
+### Creating BDDs by Executing Boolean Operations
+
+[:octicons-tag-24: 2.4.0](https://github.com/logic-ng/LogicNG/releases/tag/v2.4.0)
+
+If you already have a BDD, you can directly execute Boolean operations on it and e.g. negate it, or conjoin or disjoin it with another BDD.  The available operations on the `BDD` class are:
+
+- `negate()` build a negation of the current BDD
+- `implies(BDD other)` build an implication from the current to the `other` BDD
+- `isImpliedBy(BDD other)` build an implication from the `other` BDD to the current one
+- `equivalence(BDD other)` build an equivalence between the current and the `other` BDD
+- `and(BDD other)` build the conjunction of this and the `other` BDD
+- `or(BDD other)` build the disjunction of this and the `other` BDD
+
+
 ## Functions on BDDs
 
 When given a formula in the BDD format, one can execute different functions on them. For this section, consider the BDD created above:
@@ -750,6 +764,19 @@ graph TD
   </td>
 </tr>
 </table>
+
+### Converting to a Formula
+
+[:octicons-tag-24: 2.4.0](https://github.com/logic-ng/LogicNG/releases/tag/v2.4.0)
+
+
+Additionally to a CNF and a DNF, also the [Shannon expansion](https://en.wikipedia.org/wiki/Boole%27s_expansion_theorem) can be generated from a given BDD with the method `toFormula()`
+
+``` java
+Formula formula = bdd.toFormula();
+```
+
+yielding the formula representation `~x1 & (~x2 | x2 & x3) | x1 & (~x2 & x3 | x2)`.
 
 
 ### Creating the LogicNG-internal BDD Data Structure
