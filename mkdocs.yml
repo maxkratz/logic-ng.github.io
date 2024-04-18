@@ -1,4 +1,3 @@
-
 # the site
 site_name: The Next Generation Logic Framework
 site_url: https://www.logicng.org
@@ -70,14 +69,14 @@ markdown_extensions:
       anchor_linenums: true
   - pymdownx.inlinehilite
   - pymdownx.superfences:
-     custom_fences:
+      custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: logic-ng
@@ -101,71 +100,71 @@ extra_javascript:
 nav:
   - Home: index.md
   - Tutorial:
-    - tutorial/index.md
-    - Chapter 1 Problem Modelling: tutorial/chapter1.md
-    - Chapter 2 Formulas: tutorial/chapter2.md
-    - Chapter 3 Formula Functions: tutorial/chapter3.md
-    - Chapter 4 Propositions: tutorial/chapter4.md
-    - Chapter 5 SAT Solving: tutorial/chapter5.md
-    - Chapter 6 MaxSAT Solving: tutorial/chapter6.md
+      - tutorial/index.md
+      - Chapter 1 Problem Modelling: tutorial/chapter1.md
+      - Chapter 2 Formulas: tutorial/chapter2.md
+      - Chapter 3 Formula Functions: tutorial/chapter3.md
+      - Chapter 4 Propositions: tutorial/chapter4.md
+      - Chapter 5 SAT Solving: tutorial/chapter5.md
+      - Chapter 6 MaxSAT Solving: tutorial/chapter6.md
   - Documentation:
-    - documentation/index.md
-    - The Formula Factory: documentation/formula-factory.md
-    - Formulas:
-      - documentation/formulas/index.md
-      - Cardinality Constraints: documentation/formulas/cardinality-constraints.md
-      - Pseudo-Boolean Constraints: documentation/formulas/pb-constraints.md
-    - Formula Operations:
-      - documentation/formulas/operations/index.md
-      - Formula Functions: documentation/formulas/operations/formula-functions.md
-      - Formula Predicates: documentation/formulas/operations/formula-predicates.md
-      - Formula Transformations:
-        - documentation/formulas/operations/transformations/index.md
-        - Normal Form Transformations: documentation/formulas/operations/transformations/normal-form-transformations.md
-        - Simplifier Transformations: documentation/formulas/operations/transformations/simplifier-transformations.md
-        - Other Transformations: documentation/formulas/operations/transformations/other-transformations.md
-    - Propositions: documentation/propositions.md
-    - Solvers:
-      - documentation/solvers/index.md
-      - SAT Solving: documentation/solvers/sat-solving.md
-      - MaxSAT Solving: documentation/solvers/maxsat-solving.md
-    - Knowledge Compilation:
-      - documentation/knowledge-compilation/index.md
-      - BDD: documentation/knowledge-compilation/bdd.md
-      - DNNF: documentation/knowledge-compilation/dnnf.md
-    - Backbones: documentation/backbones.md
-    - Model Counting and Enumeration: documentation/model-counting-enumeration.md
-    - Explanations:
-      - documentation/explanations/index.md
-      - Unsat Cores: documentation/explanations/unsat-cores.md
-      - MUS: documentation/explanations/mus.md
-      - Smallest MUS: documentation/explanations/smus.md
-    - Handlers: documentation/handlers.md
-    - Graphs: documentation/graphs.md
-    - I/O: documentation/io.md
+      - documentation/index.md
+      - The Formula Factory: documentation/formula-factory.md
+      - Formulas:
+          - documentation/formulas/index.md
+          - Cardinality Constraints: documentation/formulas/cardinality-constraints.md
+          - Pseudo-Boolean Constraints: documentation/formulas/pb-constraints.md
+      - Formula Operations:
+          - documentation/formulas/operations/index.md
+          - Formula Functions: documentation/formulas/operations/formula-functions.md
+          - Formula Predicates: documentation/formulas/operations/formula-predicates.md
+          - Formula Transformations:
+              - documentation/formulas/operations/transformations/index.md
+              - Normal Form Transformations: documentation/formulas/operations/transformations/normal-form-transformations.md
+              - Simplifier Transformations: documentation/formulas/operations/transformations/simplifier-transformations.md
+              - Other Transformations: documentation/formulas/operations/transformations/other-transformations.md
+      - Propositions: documentation/propositions.md
+      - Solvers:
+          - documentation/solvers/index.md
+          - SAT Solving: documentation/solvers/sat-solving.md
+          - MaxSAT Solving: documentation/solvers/maxsat-solving.md
+      - Knowledge Compilation:
+          - documentation/knowledge-compilation/index.md
+          - BDD: documentation/knowledge-compilation/bdd.md
+          - DNNF: documentation/knowledge-compilation/dnnf.md
+      - Backbones: documentation/backbones.md
+      - Model Counting and Enumeration: documentation/model-counting-enumeration.md
+      - Explanations:
+          - documentation/explanations/index.md
+          - Unsat Cores: documentation/explanations/unsat-cores.md
+          - MUS: documentation/explanations/mus.md
+          - Smallest MUS: documentation/explanations/smus.md
+      - Handlers: documentation/handlers.md
+      - Graphs: documentation/graphs.md
+      - I/O: documentation/io.md
   - White Paper:
-    - Solving Configuration Problems with LogicNG: whitepaper/abstract.md
-    - The Problem:
-      - Mass Customization: whitepaper/problem/mass-customization.md
-      - Common Configuration Problems: whitepaper/problem/common-configuration-problems.md
-    - The Solutions:
-      - The General Approach: whitepaper/solution/general-approach.md
-      - Manual Testing vs. Automated Reasoning: whitepaper/solution/testing-vs-reasoning.md
-      - On-the-fly Computation vs. Compilation: whitepaper/solution/computation-vs-compilation.md
-      - Decision Problems vs. Optimization Problems: whitepaper/solution/decision-vs-optimization.md
-    - Real Solutions for Real Problems:
-      - Today's Use Cases:
-        - whitepaper/real-solutions/use-cases/index.md
-        - High-Level Configuration: whitepaper/real-solutions/use-cases/high-level-configuration.md
-        - Ordering Process: whitepaper/real-solutions/use-cases/ordering-process.md
-        - Bill of Materials: whitepaper/real-solutions/use-cases/bill-of-materials.md
-        - Homologation Requirements: whitepaper/real-solutions/use-cases/homologation.md
-        - ECU Configuration: whitepaper/real-solutions/use-cases/ecu-configuration.md
-      - Towards a Software-Definied World: whitepaper/real-solutions/software-world.md
-    - References: whitepaper/references.md
-    - Contact: whitepaper/contact.md
+      - Solving Configuration Problems with LogicNG: whitepaper/abstract.md
+      - The Problem:
+          - Mass Customization: whitepaper/problem/mass-customization.md
+          - Common Configuration Problems: whitepaper/problem/common-configuration-problems.md
+      - The Solutions:
+          - The General Approach: whitepaper/solution/general-approach.md
+          - Manual Testing vs. Automated Reasoning: whitepaper/solution/testing-vs-reasoning.md
+          - On-the-fly Computation vs. Compilation: whitepaper/solution/computation-vs-compilation.md
+          - Decision Problems vs. Optimization Problems: whitepaper/solution/decision-vs-optimization.md
+      - Real Solutions for Real Problems:
+          - Today's Use Cases:
+              - whitepaper/real-solutions/use-cases/index.md
+              - High-Level Configuration: whitepaper/real-solutions/use-cases/high-level-configuration.md
+              - Ordering Process: whitepaper/real-solutions/use-cases/ordering-process.md
+              - Bill of Materials: whitepaper/real-solutions/use-cases/bill-of-materials.md
+              - Homologation Requirements: whitepaper/real-solutions/use-cases/homologation.md
+              - ECU Configuration: whitepaper/real-solutions/use-cases/ecu-configuration.md
+          - Towards a Software-Definied World: whitepaper/real-solutions/software-world.md
+      - References: whitepaper/references.md
+      - Contact: whitepaper/contact.md
   - Blog:
-    - blog/index.md
+      - blog/index.md
   - Legal:
-    - Privacy Policy: legal/privacy.md
-    - Corporate Information: legal/corporate.md
+      - Privacy Policy: legal/privacy.md
+      - Corporate Information: legal/corporate.md
