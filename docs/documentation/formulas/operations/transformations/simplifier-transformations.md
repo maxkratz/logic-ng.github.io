@@ -107,9 +107,9 @@ For example, the formula `~A & ~B & ~C` stays this way (since `~(A | B | C)` is 
 
 ### Subsumption
 
-Consider a CNF with some clauses (disjunctions of literals), among them `c1` and `c2`.  Imagine that the set of literals of clause `c1` contains all literals of clause `c2`, but not the other way round.  In other words, the set of literals of `c2` is a *proper subset* of the set of literals of `c1`.  We then say that `c2` *subsumes* `c1`.  In this case, `c1` can be removed from the CNF without changing the semantics (meaning) of the formula, since every satisfying assignment for `c2` will also satisfy `c1`.
+Consider a CNF with some clauses (disjunctions of literals), among them `c1` and `c2`.  Imagine that the set of literals of clause `c2` contains all literals of clause `c1`, but not the other way round.  In other words, the set of literals of `c1` is a *proper subset* of the set of literals of `c2`.  We then say that `c1` *subsumes* `c2`.  In this case, `c2` can be removed from the CNF without changing the semantics (meaning) of the formula, since every satisfying assignment for `c1` will also satisfy `c2`.
 
-Similarly, given a DNF with some minterms (conjunctions), among them `m1` and `m2`, we say that `m1` *subsumes* `m2` if the set of literals of `m2` is a proper subset of the set of literals of `m1`.  So `m1` can be removed from the DNF without changing the semantics of the formula.
+Similarly, given a DNF with some minterms (conjunctions), among them `m1` and `m2`, we say that `m1` *subsumes* `m2` if the set of literals of `m1` is a proper subset of the set of literals of `m2`.  So `m2` can be removed from the DNF without changing the semantics of the formula.
 
 The subsumption simplifiers for CNF and DNF remove clauses/terms which are subsumed others clauses/terms, in order to yield a simpler formula.
 
