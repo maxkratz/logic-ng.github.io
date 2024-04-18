@@ -114,7 +114,7 @@ Similarly, given a DNF with some minterms (conjunctions), among them `m1` and `m
 The subsumption simplifiers for CNF and DNF remove clauses/terms which are subsumed others clauses/terms, in order to yield a simpler formula.
 
 - CNF subsumption [CNFSubsumption](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/transformations/cnf/CNFSubsumption.java): Consider the formula `(A | B) & (D | E) & (A | B | C)`: The clause `(A | B)` subsumes the clause `(A | B | C)`. The transformed formula is thus `(A | B) & (D | E)`.
-- DNF subsumption [DNFSubsumption](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/transformations/dnf/DNFSubsumption.java): Similarly, consider `(A & B) | (D & E) | (A & B & C)`. The term `(A & B & C)` subsumes the term `(A & B)`. The transformed formula is `(A & B & C) | (D & E)`.
+- DNF subsumption [DNFSubsumption](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/transformations/dnf/DNFSubsumption.java): Similarly, consider `(A & B) | (D & E) | (A & B & C)`. The term `(A & B)` subsumes the term `(A & B & C)`. The transformed formula is `(A & B) | (D & E)`.
 
 
 ### Pure Expansion Transformation
