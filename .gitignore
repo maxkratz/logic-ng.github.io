@@ -1,2 +1,6 @@
 .cache/
 site/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
