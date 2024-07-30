@@ -136,10 +136,10 @@ Variable b3 = f.variable("b3");
 Next, we define equivalence and cardinality constraints based on these variables, ensuring that *exactly one* frame and *at most one* bike bell is configured.  One way to do this is to parse the relevant formulas:
 
 ``` java
-Formula f_equiv = f.parse("frame <=> f.or(f1, f2, f3)"); // (1)!
+Formula f_equiv = f.parse("frame <=> f1 | f2 | f3"); // (1)!
 Formula f_exo = f.parse("f1 + f2 + f3 = 1"); // (2)!
 
-Formula b_equiv = f.parse("bell <=> f.or(b1, b2, b3)"); // (3)!
+Formula b_equiv = f.parse("bell <=> b1 | b2 | b3"); // (3)!
 Formula b_exo = f.parse("b1 + b2 + b3 <= 1"); // (4)!
 ```
 

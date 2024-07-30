@@ -51,7 +51,7 @@ Consider the following example for when a handler aborts the computation:
 
 ``` java
 SATSolver solver = MiniSat.miniSat(this.f);
-Formula formula = f.parse("~A & B & C & D & (~vE & F | G | H)");
+Formula formula = f.parse("~A & B & C & D & (~E & F | G | H)");
 solver.add(formula);
 SATHandler handler = new BoundedSatHandler(3);
 Backbone backbone = solver.execute(BackboneFunction.builder()
