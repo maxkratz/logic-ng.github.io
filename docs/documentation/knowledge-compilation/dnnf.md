@@ -45,7 +45,7 @@ Again, each formula can be transformed into a d-DNNF. Reconsider the example abo
 For example, consider the formula
 
 ``` java
-Formula f2 = f.parse("(A | B) & (D | E)");
+Formula f2 = p.parse("(A | B) & (D | E)");
 ```
 
 One can transform it to a d-DNNF using:

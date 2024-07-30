@@ -11,7 +11,7 @@ In LogicNG, you can either determine *all* models for a given formula (Model Enu
 Consider the following example:
 
 ``` java
-Formula f1 = f.parse("A | (~B & C)");
+Formula f1 = p.parse("A | (~B & C)");
 SATSolver solver = MiniSat.miniSat(f);
 solver.add(f1);
 ```
@@ -50,8 +50,8 @@ Consider the following example:
 
 ``` java
 SATSolver solver = MiniSat.miniSat(this.f);
-Formula formula1 = f.parse("A & (B | C)");
-Formula formula2 = f.parse("B | D");
+Formula formula1 = p.parse("A & (B | C)");
+Formula formula2 = p.parse("B | D");
 solver.add(formula1);
 solver.add(formula2);
 
@@ -106,9 +106,9 @@ However, this approach isn't feasible for large model counts, since every model 
 An example is:
 
 ``` java
-Formula f1 = f.parse("A & (B | C)");
-Formula f2 = f.parse("B | D");
-Formula f3 = f.parse("~A | B & E");
+Formula f1 = p.parse("A & (B | C)");
+Formula f2 = p.parse("B | D");
+Formula f3 = p.parse("~A | B & E");
 List<Formula> formulas = Arrays.asList(f1, f2, f3);
 
 SortedSet<Variable> variables = new TreeSet<>(Arrays.asList(f.variable("A"),

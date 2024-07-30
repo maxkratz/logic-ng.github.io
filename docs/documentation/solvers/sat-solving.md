@@ -125,16 +125,16 @@ The incremental and *decremental* interface is one of the perks of LogicNG. You 
 Let's look at an example:
 
 ``` java
-Formula f1 = f.parse("A & B & C");
+Formula f1 = p.parse("A & B & C");
 solver.add(f1);
 solver.sat();   // TRUE
 
 SolverState initialState = miniSat.saveState(); // (1)!
-solver.add(f.parse("~A")); // (2)!
+solver.add(p.parse("~A")); // (2)!
 solver.sat();   // FALSE
 
 solver.loadState(initialState); // (3)!
-solver.add(f.parse("D")); // (4)!
+solver.add(p.parse("D")); // (4)!
 solver.sat();   // TRUE
 ```
 
@@ -150,11 +150,11 @@ Since the save/load state operation only works on the length of data structures 
 Consider the following example:
 
 ``` java
-Formula f1 = f.parse("A & B & C");
+Formula f1 = p.parse("A & B & C");
 miniSat.add(f1);
 SolverState initialState = miniSat.saveState();
 
-miniSat.add(f.parse("~A"));
+miniSat.add(p.parse("~A"));
 SolverState nextState = miniSat.saveState();
 
 miniSat.loadState(initialState); // (1)!
@@ -167,19 +167,19 @@ miniSat.loadState(nextState); // (2)!
 On the other hand, you can go back to the same state repeatedly as long as you don't go back before it.
 
 ``` java
-Formula f1 = f.parse("A & B & C");
+Formula f1 = p.parse("A & B & C");
 miniSat.add(f1);
 SolverState initialState = miniSat.saveState();
 
-miniSat.add(f.parse("~A"));
+miniSat.add(p.parse("~A"));
 miniSat.sat();
 
 solver.loadState(initialState); // check another formula
-solver.add(f.parse("~B"));
+solver.add(p.parse("~B"));
 solver.sat();
 
 solver.loadState(initialState); // check another formula
-solver.add(f.parse("~C"));
+solver.add(p.parse("~C"));
 solver.sat();
 ```
 
@@ -199,7 +199,7 @@ So in general you don't have to convert the formula to CNF before you add it to 
 Example which adds the formula `f1` to the solver:
 
 ```java
-Formula f1 = f.parse("A & (~B | C)");
+Formula f1 = p.parse("A & (~B | C)");
 solver.add(f1);
 ```
 
@@ -222,7 +222,7 @@ If no arguments are provided, the formula on the solver is solved without assump
 Example for the "standard solve":
 
 ``` java
-Formula f1 = f.parse("A & (~B | C)");
+Formula f1 = p.parse("A & (~B | C)");
 solver.add(f1);
 Tristate sat = solver.sat();
 ```
@@ -237,7 +237,7 @@ There are many use cases for assumption solving, e.g. a large formula lies on th
 As an example, consider
 
 ``` java
-Formula f1 = f.parse("A & (~B | C)");
+Formula f1 = p.parse("A & (~B | C)");
 solver.add(f1);
 ```
 
@@ -291,7 +291,7 @@ If the solver is `SAT`, you might be interested in the assignment (or "model") f
 
 ``` java
 MiniSat miniSat = MiniSat.miniSat(f);
-Formula f1 = f.parse("A | (~B & C)");
+Formula f1 = p.parse("A | (~B & C)");
 miniSat.add(f1);
 minisat.model() // returns the model `~A, ~B, C`
 ```
@@ -378,7 +378,7 @@ Solver functions can be executed directly on the SAT solver and access its inter
 An example for the `OptimizationFunction` is the following: We want to return the assignment with a minimal number of positive literals.
 
 ``` java
-Formula formula = f.parse("(A | B) & (~C | D)");
+Formula formula = p.parse("(A | B) & (~C | D)");
 solver.add(formula);
 Assignment assignment = solver.execute(OptimizationFunction.builder()
         .literals(f.variable("A"), f.variable("B"), f.variable("C"))

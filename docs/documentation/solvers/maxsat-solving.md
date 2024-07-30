@@ -81,10 +81,10 @@ We generate a `MSU3` solver and add all formulas as soft clauses with weight 1. 
 
 ```java
 MaxSATSolver solver = MaxSATSolver.msu3(f);
-solver.addSoftFormula(f.parse("A & B & (C | D)"), 1);
-solver.addSoftFormula(f.parse("A => ~B"), 1);
-solver.addSoftFormula(f.parse("~C"), 1);
-solver.addSoftFormula(f.parse("~D"), 1);
+solver.addSoftFormula(p.parse("A & B & (C | D)"), 1);
+solver.addSoftFormula(p.parse("A => ~B"), 1);
+solver.addSoftFormula(p.parse("~C"), 1);
+solver.addSoftFormula(p.parse("~D"), 1);
 
 solver.solve();  // OPTIMUM
 solver.model();  // Assignment{pos=[], neg=[~A, ~B, ~C, ~D]}
@@ -102,10 +102,10 @@ We generate a `WMSU3` solver and add once again the first formula as hard clause
 
 ```java
 MaxSATSolver solver = MaxSATSolver.wmsu3(f);
-solver.addHardFormula(f.parse("A & B & (C | D)"));
-solver.addSoftFormula(f.parse("A => ~B"), 2);
-solver.addSoftFormula(f.parse("~C"), 4);
-solver.addSoftFormula(f.parse("~D"), 8);
+solver.addHardFormula(p.parse("A & B & (C | D)"));
+solver.addSoftFormula(p.parse("A => ~B"), 2);
+solver.addSoftFormula(p.parse("~C"), 4);
+solver.addSoftFormula(p.parse("~D"), 8);
 
 solver.solve();  // OPTIMUM
 solver.model();  // Assignment{pos=[A, B, C], neg=[~D]}
@@ -126,10 +126,10 @@ Last we consider two special cases.  First we try to solve a formula where the h
 
 ```java
 MaxSATSolver solver = MaxSATSolver.msu3(f);
-solver.addHardFormula(f.parse("A & B & C"));
-solver.addHardFormula(f.parse("A => ~B"));
-solver.addHardFormula(f.parse("~C"));
-solver.addSoftFormula(f.parse("X | Y"), 1);
+solver.addHardFormula(p.parse("A & B & C"));
+solver.addHardFormula(p.parse("A => ~B"));
+solver.addHardFormula(p.parse("~C"));
+solver.addSoftFormula(p.parse("X | Y"), 1);
 
 solver.solve();  // UNSATISFIABLE
 solver.model();  // null
@@ -143,9 +143,9 @@ Now we try a formula which is satisfiable:
 ```java
 MaxSATSolver solver = MaxSATSolver.msu3(f);
 MaxSATSolver solver = MaxSATSolver.msu3(f);
-solver.addHardFormula(f.parse("A & B & C"));
-solver.addSoftFormula(f.parse("~C | D"), 1);
-solver.addSoftFormula(f.parse("X | Y"), 1);
+solver.addHardFormula(p.parse("A & B & C"));
+solver.addSoftFormula(p.parse("~C | D"), 1);
+solver.addSoftFormula(p.parse("X | Y"), 1);
 
 solver.solve();  // OPTIMUM
 solver.model();  // Assignment{pos=[A, B, C, D, X], neg=[~Y]}
@@ -163,12 +163,12 @@ But what when you want to know the minimal number of satisfied clauses?  Then yo
 
 ```java
 MaxSATSolver solver = MaxSATSolver.wmsu3(f);
-solver.addHardFormula(f.parse("(A & B & ~X & ~D) | (B & C & ~A) | (C & ~D & X)"));
-solver.addSoftFormula(f.parse("A"), 2);
-solver.addSoftFormula(f.parse("B"), 4);
-solver.addSoftFormula(f.parse("C"), 8);
-solver.addSoftFormula(f.parse("D"), 5);
-solver.addSoftFormula(f.parse("X"), 7);
+solver.addHardFormula(p.parse("(A & B & ~X & ~D) | (B & C & ~A) | (C & ~D & X)"));
+solver.addSoftFormula(p.parse("A"), 2);
+solver.addSoftFormula(p.parse("B"), 4);
+solver.addSoftFormula(p.parse("C"), 8);
+solver.addSoftFormula(p.parse("D"), 5);
+solver.addSoftFormula(p.parse("X"), 7);
 ```
 
 We have one hard formula and each variable in it has a given weight.  Solving the problem yields the assignment `Assignment{pos=[B, C, D, X], neg=[~A]}` with result 2. This means when setting all variables except `A` to `true`, only one formula (in this case variable) is unsatisfied and has weight 2.
@@ -177,12 +177,12 @@ If we give the variable weights a meaning, e.g. a price, then we have now comput
 
 ```java
 MaxSATSolver solver = MaxSATSolver.wmsu3(f);
-solver.addHardFormula(f.parse("(A & B & ~X & ~D) | (B & C & ~A) | (C & ~D & X)"));
-solver.addSoftFormula(f.parse("~A"), 2);
-solver.addSoftFormula(f.parse("~B"), 4);
-solver.addSoftFormula(f.parse("~C"), 8);
-solver.addSoftFormula(f.parse("~D"), 5);
-solver.addSoftFormula(f.parse("~X"), 7);
+solver.addHardFormula(p.parse("(A & B & ~X & ~D) | (B & C & ~A) | (C & ~D & X)"));
+solver.addSoftFormula(p.parse("~A"), 2);
+solver.addSoftFormula(p.parse("~B"), 4);
+solver.addSoftFormula(p.parse("~C"), 8);
+solver.addSoftFormula(p.parse("~D"), 5);
+solver.addSoftFormula(p.parse("~X"), 7);
 ```
 
 Now the model is `Assignment{pos=[A, B], neg=[~C, ~D, ~X]}` with a result of 6.  This means the cheapest variable assignment consists of only `A` and `B` with a price of 6.

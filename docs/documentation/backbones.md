@@ -19,8 +19,8 @@ As an example, consider:
 
 ``` java
 SATSolver solver = MiniSat.miniSat(this.f);
-Formula formula1 = f.parse("A & (~B | C) & ~D");
-Formula formula2 = f.parse("D | E");
+Formula formula1 = p.parse("A & (~B | C) & ~D");
+Formula formula2 = p.parse("D | E");
 solver.add(formula1);
 solver.add(formula2);
 Backbone backboneFull = solver.backbone(solver.knownVariables());
@@ -51,7 +51,7 @@ Consider the following example for when a handler aborts the computation:
 
 ``` java
 SATSolver solver = MiniSat.miniSat(this.f);
-Formula formula = f.parse("~A & B & C & D & (~E & F | G | H)");
+Formula formula = p.parse("~A & B & C & D & (~E & F | G | H)");
 solver.add(formula);
 SATHandler handler = new BoundedSatHandler(3);
 Backbone backbone = solver.execute(BackboneFunction.builder()
@@ -73,7 +73,7 @@ As an example, consider:
 
 ``` java
 SATSolver solver = MiniSat.miniSat(this.f);
-Formula formula = f.parse("A & (~A | B) & ~B");
+Formula formula = p.parse("A & (~A | B) & ~B");
 solver.add(formula);
 Backbone backbone = solver.execute(BackboneFunction.builder()
         .variables(formula.variables())

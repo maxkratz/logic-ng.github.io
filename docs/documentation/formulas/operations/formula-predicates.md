@@ -38,7 +38,7 @@ Further, one can check whether the given formula is an "And-inverter graph" (AIG
 An example for checking these properties on a formula can be seen in the following code snippet:
 
 ``` java
-Formula f1 = f.parse("(A | B) & (A | C ) & (C | D) & (B | ~D)");
+Formula f1 = p.parse("(A | B) & (A | C ) & (C | D) & (B | ~D)");
 
 boolean isAIG = f1.holds(AIGPredicate.get()); // false
 boolean isNNF = f1.holds(NNFPredicate.get()); // true
@@ -69,7 +69,7 @@ Let's have a closer look to each of these predicates:
 The [SATPredicate](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/predicates/satisfiability/SATPredicate.java) tests whether a formula is satisfiable. A formula is satisfiable if there exists at least one assignment such that the formula evaluates to `true` with this assignment. Such an assignment is called *satisfying assignment* or *model*. For example `A & B | C` is satisfiable for the assignment `{A, B, ~C}`. In order to check for satisfiability, the `SATPredicate` internally calls a [SAT Solver](../../../solvers/sat-solving).
 
 ``` java
-Formula f1 = f.parse("A & B | C");
+Formula f1 = p.parse("A & B | C");
 
 boolean isSatisfiable = f1.holds(new SATPredicate(f)); // true
 ```
@@ -80,7 +80,7 @@ boolean isSatisfiable = f1.holds(new SATPredicate(f)); // true
 In contrast to the `SATPredicate` the [ContradictionPredicate](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/predicates/satisfiability/ContradictionPredicate.java) can be used to test if a formula is *unsatisfiable*, i.e. the formula is a *contradiction*. That is, this predicate holds if and only if the `SATPredicate` does not hold and vice versa. An example for a contradiction is `A & (A => B) & (B => ~A)`.
 
 ``` java
-Formula f1 = f.parse("A & (A => B) & (B => ~A)");
+Formula f1 = p.parse("A & (A => B) & (B => ~A)");
 
 boolean isSatisfiable = f1.holds(new SATPredicate(f)); // false
 boolean isContradiction = f1.holds(new ContradictionPredicate(f)); // true
@@ -92,7 +92,7 @@ boolean isContradiction = f1.holds(new ContradictionPredicate(f)); // true
 The [TautologyPredicate](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/predicates/satisfiability/TautologyPredicate.java) indicates whether a given formula is a tautology, that is, always holds, regardless of the assignment.  An example for an tautology is `(A & B) | (~A & B) | (A & ~B) | (~A & ~B)`.
 
 ``` java
-Formula f1 = f.parse("(A & B) | (~A & B) | (A & ~B) | (~A & ~B)");
+Formula f1 = p.parse("(A & B) | (~A & B) | (A & ~B) | (~A & ~B)");
 
 boolean isSatisfiable = f1.holds(new SATPredicate(f)); // true
 boolean isContradiction = f1.holds(new ContradictionPredicate(f)); // false
@@ -102,8 +102,8 @@ boolean isTautology = f1.holds(new TautologyPredicate(f)); // true
 A very useful usage of the tautology predicate is to check whether two formulas are semantically equivalent.  To do this, create an equivalence consisting of the two formulas to check.  Then check whether this equivalence is a tautology:
 
 ``` java
-Formula f1 = f.parse("(A | B) & (A | C ) & (C | D) & (B | ~D)");
-Formula f2 = f.parse("D & A & B | ~D & C & A | C & B");
+Formula f1 = p.parse("(A | B) & (A | C ) & (C | D) & (B | ~D)");
+Formula f2 = p.parse("D & A & B | ~D & C & A | C & B");
 
 Formula equivalence = f.equivalence(f1, f2);
 boolean formulasAreEquivalent =
@@ -117,7 +117,7 @@ Also, testing if one formula is a logical implication of another formula can be 
 If a formula is satisfiable, but not a tautology, then the [ContingencyPredicate](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/predicates/satisfiability/ContingencyPredicate.java) holds. In other words, the formula is *satisfiable* and *falsifiable*. For example, for the formula `A & B | C` the contingency predicate holds: The formula is satisfiable (e.g. a model is `{A, B, C}`) and the formula is falsifiable (e.g. a falsifying assignment is `{~A, ~B, ~C}`).
 
 ``` java
-Formula f1 = f.parse("A & B | C");
+Formula f1 = p.parse("A & B | C");
 
 boolean isSatisfiable = f1.holds(new SATPredicate(f)); // true
 boolean isContradiction = f1.holds(new ContradictionPredicate(f)); // false
@@ -136,8 +136,8 @@ So if one wants to know, if a formula evaluates to true or false under a partial
     In one of our applications we had to check hundreds of thousands of formulas against the same assignments over and over again.  Therefore we wrote this special predicate, which only checks if a formula evaluates to true or false under a potentially partial assignment.  Usually you will not need such a specialized function, but in case you do - there it is :smiley:
 
 ```java
-Formula f1 = f.parse("A & B | C & ~D");
-Formula f2 = f.parse("A & ~B | C & ~D");
+Formula f1 = p.parse("A & B | C & ~D");
+Formula f2 = p.parse("A & ~B | C & ~D");
 
 Map<Variable, Boolean> assignment = new HashMap<>();
 assignment.put(f.variable("A"), true);

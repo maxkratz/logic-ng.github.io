@@ -30,7 +30,7 @@ The sorting order for variables is the default Java sorting order on the variabl
 Here is a small example for the usage of the functions:
 
 ``` java
-Formula f1 = f.parse("A & ~B => A | B | C");
+Formula f1 = p.parse("A & ~B => A | B | C");
 
 // computes the set [A, B, C]
 SortedSet<Variable> variables1 = f1.variables();
@@ -47,7 +47,7 @@ SortedSet<Literal> literals2 = f1.apply(LiteralsFunction.get());
 The [VariableProfileFunction](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/functions/VariableProfileFunction.java) and [LiteralProfileFunction](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/functions/LiteralProfileFunction.java) count the number of occurrences for each variable (respectively, literal) and return it in a map.  The map contains the variable or literal as key and the number of occurrences as value.  E.g.
 
 ``` java
-Formula f1 = f.parse("A & ~B => A | B | C & (A => (B | C))");
+Formula f1 = p.parse("A & ~B => A | B | C & (A => (B | C))");
 
 // computes the map {A=3, C=2, B=3}
 Map<Variable, Integer> variableMap = f1.apply(new VariableProfileFunction());
@@ -64,7 +64,7 @@ The [NumberOfAtomsFunction](https://github.com/logic-ng/LogicNG/blob/master/src/
 Let's consider
 
 ```java
-Formula f1 = f.parse("A & B & (A | B) <=> C & (A | B)")
+Formula f1 = p.parse("A & B & (A | B) <=> C & (A | B)");
 ```
 
 Using `#!java f1.numberOfAtoms()` we find that the number of atoms is 7, as the atoms are
@@ -101,7 +101,7 @@ The [SubNodeFunction](https://github.com/logic-ng/LogicNG/blob/master/src/main/j
 Since the result is a set of sub-formulas each sub-formula occurs only once in the result. The sub-formula function is implemented in such a way, that the order of the sub-formulas in the result is bottom-up, i.e. a sub-formula only appears in the result when all of its sub-formulas are already listed.  The formula itself is always the last element in the result.
 
 ```java
-Formula f1 = f.parse("A & ~B => A | B | C");
+Formula f1 = p.parse("A & ~B => A | B | C");
 
 // Computes the sub-formulas
 // A
@@ -147,7 +147,7 @@ Prime implicants of a formula play a key role in the
 An example for applying the function is:
 
 ```java
-Formula f1 = f.parse("(A | B) & (A | C ) & (C | D) & (B | ~D)");
+Formula f1 = p.parse("(A | B) & (A | C ) & (C | D) & (B | ~D)");
 
 // Computes [B, C]
 SortedSet<Literal> minimumPrimeImplicant =

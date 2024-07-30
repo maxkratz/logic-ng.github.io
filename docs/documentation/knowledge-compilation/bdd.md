@@ -120,7 +120,7 @@ A practical example for the significance of the right variable ordering is the f
 Consider the following formula `f1` which we want to transform into a BDD and compute the number of clauses of the CNF representation of the BDD.
 
 ```java
-final Formula f1 = f.parse("(~(v372 | v2095 | v2096 | v683 | v1629 | v1655 | v1487 | v141 | v1509 | v743 | v2137 | v1622 | v2276 | v811 | v2277 | v782 | v39 | " +
+final Formula f1 = p.parse("(~(v372 | v2095 | v2096 | v683 | v1629 | v1655 | v1487 | v141 | v1509 | v743 | v2137 | v1622 | v2276 | v811 | v2277 | v782 | v39 | " +
    "v1900 | v1375 | v1376 | v2113 | v2114 | v17 | v18) & v1604 | (v17 | v18) & ~(v372 | v2095 | v2096 | v683 | v1455 | v1655 | v1487 | " +
    "v1509 | v743 | v2137 | v1356 | v1622 | v2276 | v811 | v2277 | v782 | v39 | v1900 | v1375 | v1376 | v2113 | v2114) & v1604) & (v1421 " +
    "& v1455 & v1457 & v675 & v676 & v690 & v504 & v708 & v405 & v1669 & v1467 & v1466 & v1570 & v1472 & v1493 & v1454 & v507 & v695 & " +
@@ -164,7 +164,7 @@ So the number of clauses in the CNF varies from 1.182 million to 5.646 billion, 
 When you created a BDD with a given ordering and want to improve the ordering, you can *reorder* the given BDD. Reordering a BDD is usually more efficient than creating a new one with a different ordering. For example, consider the following formula and its respective BDD:
 
 ```java
-Formula phi = f.parse("(x1 <=> x2) | x3 | x4");
+Formula phi = p.parse("(x1 <=> x2) | x3 | x4");
 BDD bdd = phi.bdd();
 ```
 
@@ -426,7 +426,7 @@ The result is `{x1=1, x2=2, x3=1}`, meaning that `x1` occurs `once` in the BDD, 
     Note that the result of the `variableProfile` of the BDD is usually different from the [variable profile on the original formula](../../formulas/operations/formula-functions#compute-the-variables-and-literals-of-a-formula):
 
 ```java
-Formula f1 = f.parse("(x1 <=> x2) | x3"); // the initial formula of bdd
+Formula f1 = p.parse("(x1 <=> x2) | x3"); // the initial formula of bdd
 Map<Variable, Integer> variableProfile = f1.apply(new VariableProfileFunction());
 ```
 
@@ -438,7 +438,7 @@ The result is `{x1=1, x3=1, x2=1}`, as `x2` occurs in the *formula* only once.
 The *support* of a BDD is the set of variables which the BDD depends on, meaning the opposite of *don't-care* variables. The support is not necessarily equivalent to the set of variables of the formula with which the BDD was created. In order to see this, consider the example of a tautology:
 
 ```java
-Formula f2 = f.parse("A | B | ~A & ~B");
+Formula f2 = p.parse("A | B | ~A & ~B");
 ```
 
 Then the support of the formula can be computed via
@@ -449,7 +449,7 @@ SortedSet<Variable> support = f2.bdd().support();
 Thus, the support is empty, but the variables of `f2` are `A, B`. If we added a variable which is relevant to the BDD to the formula, say
 
 ```java
-Formula f2 = f.parse("(A | B | ~A & ~B) & C");
+Formula f2 = p.parse("(A | B | ~A & ~B) & C");
 ```
 
 then the support is `C`, as it is the only variable which the BDD depends on.

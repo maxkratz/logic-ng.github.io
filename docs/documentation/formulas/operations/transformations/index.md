@@ -47,8 +47,8 @@ The result of any transformation in this chapter is another formula. Depending o
     Consider the example:
 
     ``` java
-    Formula f1 = f.parse("A | B");
-    Formula f2 = f.parse("A | C) & (B | ~C");
+    Formula f1 = p.parse("A | B");
+    Formula f2 = p.parse("A | C) & (B | ~C");
     ```
 
     The formulas are both satisfiable, i.e. they are equisatisfiable. But they are not equivalent. For example, the assignment `a = {~A, B, ~C}` yields `eval(f1, a) = true`, but `eval(f2, a) = false`.

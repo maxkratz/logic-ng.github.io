@@ -19,7 +19,7 @@ You can configure a proposition with and without a description:
 
     ``` java
     Proposition props1 =
-            new StandardProposition("my formula", f.parse("A | ~B & C"));
+            new StandardProposition("my formula", p.parse("A | ~B & C"));
     ```
 
     generates the proposition
@@ -29,7 +29,7 @@ You can configure a proposition with and without a description:
 2. Without a description:
 
     ```java
-    Proposition props2 = new StandardProposition(f.parse("A | ~B & C"));
+    Proposition props2 = new StandardProposition(p.parse("A | ~B & C"));
     ```
 
     generates the proposition
@@ -104,9 +104,9 @@ Let's generate some propositions:
 
 ``` java
 new ExtendedProposition<>(new MyBackpack(1, "Rouven", RuleType.EQUIV),
-        f.equivalence(f.parse("A & B"), f.parse("C")));
+        f.equivalence(p.parse("A & B"), p.parse("C")));
 new ExtendedProposition<>(new MyBackpack(2, "Verena", RuleType.IMPL),
-        f.implication(f.parse("A"), f.parse("C | D")));
+        f.implication(p.parse("A"), p.parse("C | D")));
 new ExtendedProposition<>(new MyBackpack(3, "Martin", RuleType.CC),
         f.amo(f.variable("A"), f.variable("C")));
 ```

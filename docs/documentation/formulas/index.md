@@ -57,7 +57,7 @@ The atoms of a formula are variables or constants, counting multiple occurrences
 Any formula can be visualised (and thought of) as a directed acyclic graph (DAG). We consider the following example formula
 
 ``` java
-Formula f1 = f.parse("A & B & (A | B) <=> C & (A | B)");
+Formula f1 = p.parse("A & B & (A | B) <=> C & (A | B)");
 ```
 
 ``` mermaid
@@ -216,8 +216,8 @@ Variables in a formula can be substituted with other formulas. For example, with
 
 ```java
 Substitution substitution = new Substitution();
-substitution.addMapping(f.variable("A"), f.parse("D & E"));
-substitution.addMapping(f.variable("C"), f.parse("F"));
+substitution.addMapping(f.variable("A"), p.parse("D & E"));
+substitution.addMapping(f.variable("C"), p.parse("F"));
 Formula result = formula.substitute(substitution);
 ```
 
@@ -300,7 +300,7 @@ So first, we construct a new singleton for the cache entry for our new formula f
 The function can then be used with or without caching:
 
 ```java
-Formula formula = f.parse("a & (b | c) => ~a & d | a <=> f");
+Formula formula = p.parse("a & (b | c) => ~a & d | a <=> f");
 Integer applyWithCache = formula.apply(new MyImportantFunction());
 Integer applyWithoutCache = formula.apply(new MyImportantFunction(), false);
 ```

@@ -14,7 +14,7 @@ For theoretical insights on this section, particularly the Tseitin and Plaisted-
 The NNF of a formula can be obtained by executing the [NNFTransformation](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/transformations/NNFTransformation.java) on it.  There is also a shortcut method directly on the `Formula` class: `.nnf()`.
 
 ``` java
-Formula f1 = f.parse("A | ~(B & C)");
+Formula f1 = p.parse("A | ~(B & C)");
 Formula nnf = f1.nnf(); // yields A | ~B | ~C
 ```
 
@@ -44,7 +44,7 @@ In contrast to the equivalent transformations, equisatisfiable CNF transformatio
 For the CNF transformations in this section, consider the formula `f1`:
 
 ``` java
-Formula f1 = f.parse("A | ~(B & C)");
+Formula f1 = p.parse("A | ~(B & C)");
 ```
 
 
@@ -132,7 +132,7 @@ The transformation has three constructors:
 Consider the formula
 
 ``` java
-Formula f1 = f.parse("(x1 <=> x2) | x3");
+Formula f1 = p.parse("(x1 <=> x2) | x3");
 ```
 
 When `transformation` is being created in one of the ways above, and we call
@@ -222,7 +222,7 @@ is a DNF with four terms, the first contains three literals, the other two liter
 For the following examples consider
 
 ```java
-Formula f2 = f.parse("(A | B) & C");
+Formula f2 = p.parse("(A | B) & C");
 ```
 
 ### DNF Factorization
@@ -259,7 +259,7 @@ Note that all DNF transformations can lead to an exponential increase in the siz
 Using the AIG transformation [AIGTransformation](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/transformations/AIGTransformation.java) one can transform any formula to an And-inverter graph.  An AIG consists only of conjunctions and negations.  For information about AIG graphs check out the excursion on [And-Inverter Graphs](../../formula-predicates#syntactical-predicates). For an example look at the following transformation:
 
 ``` java
-Formula f3 = f.parse("A => ~(B | ~C)");
+Formula f3 = p.parse("A => ~(B | ~C)");
 Formula aig = f3.transform(new AIGTransformation());
 ```
 

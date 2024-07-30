@@ -19,11 +19,11 @@ Consider the following propositions:
 
 ``` java
 List<Proposition> props = new ArrayList<>();
-props.add(new StandardProposition(f.parse("A & B")));
-props.add(new StandardProposition(f.parse("B => ~C")));
-props.add(new StandardProposition(f.parse("A | C & D")));
-props.add(new StandardProposition(f.parse("D & (E | F)")));
-props.add(new StandardProposition(f.parse("C")));
+props.add(new StandardProposition(p.parse("A & B")));
+props.add(new StandardProposition(p.parse("B => ~C")));
+props.add(new StandardProposition(p.parse("A | C & D")));
+props.add(new StandardProposition(p.parse("D & (E | F)")));
+props.add(new StandardProposition(p.parse("C")));
 ```
 
 You can compute the MUS on a set of propositions in the following way:
@@ -82,14 +82,14 @@ In this case, the result is the same for both algorithms. In general, this is no
 
     ``` java
     List<Proposition> props = new ArrayList<>();
-    props.add(new StandardProposition(f.parse("~A")));
-    props.add(new StandardProposition(f.parse("A | ~B")));
-    props.add(new StandardProposition(f.parse("B")));
-    props.add(new StandardProposition(f.parse("~B | C")));
-    props.add(new StandardProposition(f.parse("~C | D")));
-    props.add(new StandardProposition(f.parse("~D")));
-    props.add(new StandardProposition(f.parse("~C | E")));
-    props.add(new StandardProposition(f.parse("~E")));
+    props.add(new StandardProposition(p.parse("~A")));
+    props.add(new StandardProposition(p.parse("A | ~B")));
+    props.add(new StandardProposition(p.parse("B")));
+    props.add(new StandardProposition(p.parse("~B | C")));
+    props.add(new StandardProposition(p.parse("~C | D")));
+    props.add(new StandardProposition(p.parse("~D")));
+    props.add(new StandardProposition(p.parse("~C | E")));
+    props.add(new StandardProposition(p.parse("~E")));
     ```
 
     The two different algorithms return different MUSes. The default deletion-based algorithm returns the MUS:

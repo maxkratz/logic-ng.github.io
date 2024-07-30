@@ -13,14 +13,14 @@ As an example, consider the following list of propositions:
 
 ``` java
 List<Proposition> props = new ArrayList<>();
-props.add(new StandardProposition(f.parse("~A")));
-props.add(new StandardProposition(f.parse("A | ~B")));
-props.add(new StandardProposition(f.parse("B")));
-props.add(new StandardProposition(f.parse("~B | C")));
-props.add(new StandardProposition(f.parse("~C | D")));
-props.add(new StandardProposition(f.parse("~D | E")));
-props.add(new StandardProposition(f.parse("~C | E")));
-props.add(new StandardProposition(f.parse("~E")));
+props.add(new StandardProposition(p.parse("~A")));
+props.add(new StandardProposition(p.parse("A | ~B")));
+props.add(new StandardProposition(p.parse("B")));
+props.add(new StandardProposition(p.parse("~B | C")));
+props.add(new StandardProposition(p.parse("~C | D")));
+props.add(new StandardProposition(p.parse("~D | E")));
+props.add(new StandardProposition(p.parse("~C | E")));
+props.add(new StandardProposition(p.parse("~E")));
 ```
 
 When adding these formulas to a solver and solving them, the result is `FALSE`.  Now we can extract the unsatisfiable core with

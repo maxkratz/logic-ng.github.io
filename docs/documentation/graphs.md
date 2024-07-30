@@ -15,8 +15,8 @@ LogicNG has a very simple implementation of graph and hypergraph data structures
 In LogicNG, you can generate a constraint graph with the [ConstraintGraphGenerator](https://github.com/logic-ng/LogicNG/blob/master/src/main/java/org/logicng/graphs/generators/ConstraintGraphGenerator.java) in the following way:
 
 ``` java
-List<Formula> formulas = Arrays.asList(f.parse("A | ~B | C"),
-        f.parse("D | ~A"), f.parse("D + E = 1"), f.parse("G"));
+List<Formula> formulas = Arrays.asList(p.parse("A | ~B | C"),
+        p.parse("D | ~A"), p.parse("D + E = 1"), p.parse("G"));
 Graph<Variable> constraintGraph =
         ConstraintGraphGenerator.generateFromFormulas(formulas);
 ```
@@ -86,8 +86,8 @@ In a [hypergraph](https://en.wikipedia.org/wiki/Hypergraph) an edge can connect 
 For this case, each edge in the hypergraph represents a single clause in the CNF (remember, the edge can connect more than two nodes).  Such a hypergraph of a CNF can be generated in the following way:
 
 ```java
-List<Formula> formulas = Arrays.asList(f.parse("A | ~B | C"), f.parse("D | ~A"),
-        f.parse("D | ~E"), f.parse("G"));
+List<Formula> formulas = Arrays.asList(p.parse("A | ~B | C"), p.parse("D | ~A"),
+        p.parse("D | ~E"), p.parse("G"));
 Hypergraph<Variable> hypergraph = HypergraphGenerator.fromCNF(formulas);
 ```
 

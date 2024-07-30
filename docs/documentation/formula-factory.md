@@ -49,7 +49,7 @@ Together with the smart container function presented in the last section, the ex
 
 There are two ways to create formulas using a formula factory:
 
-Firstly, one can parse a formula from a string: E.g. `#!java Formula created = f.parse("A & B");`.
+Firstly, one can parse a formula from a string: E.g. `#!java Formula created = p.parse("A & B");`.
 
 Secondly, one can create a formula of a certain type with the methods for formula creation in the formula factory. An overview about how to create those formulas is here:
 
@@ -208,11 +208,12 @@ The following code example shows the usage of this feature
 
 ```java
 ExtendedFormulaFactory f = new ExtendedFormulaFactory();
+PropositionalParser p = new PropositionalParser(f);
 
 // read and work with a large base formula
 
 FormulaFactoryState state = f.save(); // (1)!
-f.parse("..."); // (2)!
+p.parse("..."); // (2)!
 f.load(state); // (3)!
 ```
 

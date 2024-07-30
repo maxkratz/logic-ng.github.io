@@ -20,14 +20,14 @@ Let's consider the following list of propositions:
 
 ``` java
 List<Proposition> props = new ArrayList<>();
-props.add(new StandardProposition(f.parse("~A")));
-props.add(new StandardProposition(f.parse("A | ~B")));
-props.add(new StandardProposition(f.parse("B")));
-props.add(new StandardProposition(f.parse("~B | C")));
-props.add(new StandardProposition(f.parse("~C | D")));
-props.add(new StandardProposition(f.parse("~D | E")));
-props.add(new StandardProposition(f.parse("~C | E")));
-props.add(new StandardProposition(f.parse("~E")));
+props.add(new StandardProposition(p.parse("~A")));
+props.add(new StandardProposition(p.parse("A | ~B")));
+props.add(new StandardProposition(p.parse("B")));
+props.add(new StandardProposition(p.parse("~B | C")));
+props.add(new StandardProposition(p.parse("~C | D")));
+props.add(new StandardProposition(p.parse("~D | E")));
+props.add(new StandardProposition(p.parse("~C | E")));
+props.add(new StandardProposition(p.parse("~E")));
 ```
 
 We show three examples on how to compute the SMUS for these propositions.
@@ -56,7 +56,7 @@ For example, the additional constraint `D` leads to a smaller MUS than the previ
 
 ``` java
 List<Proposition> result = SmusComputation.computeSmus(props,
-        Collections.singletonList(f.parse("D")), f);
+        Collections.singletonList(p.parse("D")), f);
 ```
 
 The result contains only two propositions:
@@ -79,7 +79,7 @@ Suppose we perform the same operation as above, but we want to control the compu
 ``` java
 List<Proposition> result = SmusComputation.computeSmus(
         props,
-        Collections.singletonList(f.parse("D")),
+        Collections.singletonList(p.parse("D")),
         f,
         new TimeoutOptimizationHandler(100));
 ```
