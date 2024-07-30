@@ -104,6 +104,11 @@ To use LogicNG, you always have to create a formula factory first.  The formula 
 FormulaFactory f = new FormulaFactory();
 ```
 
+To parse formula strings you need a [formula parser](../../documentation/io#parsers). In this tutorial we use the pseudo-Boolean parser which can be created with the previously created formula factory instance as follows:
+
+```java
+PseudoBooleanParser p = new PseudoBooleanParser(f);
+```
 
 ### Specifying that each configuration contains the right components
 
@@ -136,11 +141,11 @@ Variable b3 = f.variable("b3");
 Next, we define equivalence and cardinality constraints based on these variables, ensuring that *exactly one* frame and *at most one* bike bell is configured.  One way to do this is to parse the relevant formulas:
 
 ``` java
-Formula f_equiv = f.parse("frame <=> f1 | f2 | f3"); // (1)!
-Formula f_exo = f.parse("f1 + f2 + f3 = 1"); // (2)!
+Formula f_equiv = p.parse("frame <=> f1 | f2 | f3"); // (1)!
+Formula f_exo = p.parse("f1 + f2 + f3 = 1"); // (2)!
 
-Formula b_equiv = f.parse("bell <=> b1 | b2 | b3"); // (3)!
-Formula b_exo = f.parse("b1 + b2 + b3 <= 1"); // (4)!
+Formula b_equiv = p.parse("bell <=> b1 | b2 | b3"); // (3)!
+Formula b_exo = p.parse("b1 + b2 + b3 <= 1"); // (4)!
 ```
 
 1. a frame is configured if and only if one of f1, f2 and f3 is chosen
@@ -175,8 +180,8 @@ Again, one can create these formulas either by parsing the string or by using th
 Parsing the formulas can be done in the following way:
 
 ```java
-Formula formula1 = f.parse("f1 => ~s1 & ~h3"); // (1)!
-Formula formula6 = f.parse("wf1 <=> wb1");
+Formula formula1 = p.parse("f1 => ~s1 & ~h3"); // (1)!
+Formula formula6 = p.parse("wf1 <=> wb1");
 ```
 
 1. generate formulas by parsing a string
